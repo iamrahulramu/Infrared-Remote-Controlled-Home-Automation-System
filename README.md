@@ -69,16 +69,16 @@ The hexadecimal code associated with each button on an IR remote varies between 
    | 11 | OUT |
    | 5V | VCC |
    | GND | GND |
-2. Upload the **IR code receiver sketch** from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino
-3. Open the **Serial Monitor** and set the baud rate to 9600
-4. Press different buttons on the IR remote and note the hexadecimal values displayed for each button
+2. Upload the **IR code receiver sketch** from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino.
+3. Open the **Serial Monitor** and set the baud rate to 9600.
+4. Press different buttons on the IR remote and note the hexadecimal values displayed for each button.
 
 After successfully identifying the hexadecimal codes for each button on the IR remote, specific buttons can be linked to corresponding appliances.
 
 ### Linking Buttons on IR Remote to Specific Appliances
-1. Open [`Arduino/ir_remote_home_automation.ino`](Arduino/ir_remote_home_automation.ino)
-2. Replace the example hexadecimal codes with the codes obtained in the previous step
-3. Upload the code to the Arduino board
+1. Open [`Arduino/ir_remote_home_automation.ino`](Arduino/ir_remote_home_automation.ino).
+2. Replace the example hexadecimal codes with the codes obtained in the previous step.
+3. Upload the code to the Arduino board.
 4. Connect the relay module, light bulb, and miniature fan as described below:
     | Arduino Pin                 | Connected Component      | Component Pin     |
     | --------------------------- | ------------------------ | ----------------- |
@@ -169,10 +169,10 @@ While the current implementation successfully controls home appliances using an 
 
 ---
 
-## License
-This project is licensed under the terms specified in the ``LICENSE`` file **(MIT License)**.
+## Acknowledgements
+This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
 
 ---
 
-## Acknowledgements
-This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
+## License
+This project is licensed under the terms specified in the ``LICENSE`` file **(MIT License)**.
