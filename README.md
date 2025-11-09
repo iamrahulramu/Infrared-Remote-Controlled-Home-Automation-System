@@ -64,14 +64,16 @@ The hexadecimal code associated with each button on an IR remote varies between 
 
 ### Identifying Hexadecimal Code of Each Button on IR Remote
 1. Connect the TSOP1738 IR receiver to the Arduino as described below:
+
    | Arduino Pin | TSOP1738 Pin |
    |--------------|--------------|
    | 11 | OUT |
    | 5V | VCC |
    | GND | GND |
-2. Upload the **IR code receiver sketch** from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino.
-3. Open the **Serial Monitor** and set the baud rate to 9600.
-4. Press different buttons on the IR remote and note the hexadecimal values displayed for each button.
+   
+3. Upload the **IR code receiver sketch** from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino.
+4. Open the **Serial Monitor** and set the baud rate to 9600.
+5. Press different buttons on the IR remote and note the hexadecimal values displayed for each button.
 
 After successfully identifying the hexadecimal codes for each button on the IR remote, specific buttons can be linked to corresponding appliances.
 
@@ -80,6 +82,7 @@ After successfully identifying the hexadecimal codes for each button on the IR r
 2. Replace the example hexadecimal codes with the codes obtained in the previous step.
 3. Upload the code to the Arduino board.
 4. Connect the relay module, light bulb, and miniature fan as described below:
+
     | Arduino Pin                 | Connected Component      | Component Pin     |
     | --------------------------- | ------------------------ | ----------------- |
     | 11                          | TSOP1738 IR Receiver     | OUT               |
