@@ -178,4 +178,4 @@ This project was a collaborative effort developed between April 2022 and June 20
 ---
 
 ## License
-This project is licensed under the terms specified in the ``LICENSE`` file **(MIT License)**.
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file **(MIT License)**.
