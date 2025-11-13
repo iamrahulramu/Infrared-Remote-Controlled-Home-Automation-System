@@ -4,41 +4,41 @@ A simple Arduino-based home automation system that allows users to control multi
 ---
 
 ## Table of Contents
-- [Infrared Remote-Controlled Home Automation System](#infrared-remote-controlled-home-automation-system)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-  - [Hardware Components](#hardware-components)
-  - [Software Requirements](#software-requirements)
-  - [Implementation Steps](#implementation-steps)
-    - [Identifying Hexadecimal Code of Each Button on IR Remote](#identifying-hexadecimal-code-of-each-button-on-ir-remote)
-    - [Linking Buttons on IR Remote to Specific Appliances](#linking-buttons-on-ir-remote-to-specific-appliances)
-  - [Implementation Description](#implementation-description)
-    - [IR Code Identification](#ir-code-identification)
-    - [Appliance Control](#appliance-control)
-  - [Future Improvements](#future-improvements)
-  - [License](#license)
-  - [Acknowledgements](#acknowledgements)
+- [Project Overview](#project-overview)
+- [Hardware Components](#hardware-components)
+- [Software Requirements](#software-requirements)
+- [Implementation Steps](#implementation-steps)
+  - [Identifying Hexadecimal Code of Each Button on IR Remote](#identifying-hexadecimal-code-of-each-button-on-ir-remote)
+  - [Linking Buttons on IR Remote to Specific Appliances](#linking-buttons-on-ir-remote-to-specific-appliances)
+- [Implementation Description](#implementation-description)
+  - [IR Code Identification](#ir-code-identification)
+  - [Appliance Control](#appliance-control)
+- [Future Improvements](#future-improvements)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 ---
 
 ## Project Overview
+<p align="justify">
 When any button on the IR remote is pressed, the TSOP1738 IR receiver (connected to the Arduino board) detects the signal and sends it to the Arduino Uno. The Arduino decodes this incoming signal into a hexadecimal value and compares it with predefined codes stored in the source code. If a match is found, the corresponding relay channel is toggled, switching the connected appliance ON or OFF.
+</p>
 
 ---
 
 ## Hardware Components
 This section lists the hardware components used in the project, along with their functionalities.
 
-| Component | Function |
-|------------|-------------|
-| Arduino Uno | Main controller board |
-| TSOP1738 IR Receiver | To receive signals from the IR remote |
-| Relay Module (2-Channel) | To switch the appliances ON/OFF |
-| Light Bulb | Load/Appliance |
-| Miniature Fan | Load/Appliance |
-| IR Remote | To provide user control input |
-| Jumper Wires | To connect various hardware components |
-| Breadboard | To provide a prototype platform for assembling the system |
+| Component                | Function                                                  |
+|:------------------------:|:---------------------------------------------------------:|
+| Arduino Uno              | Main controller board                                     |
+| TSOP1738 IR Receiver     | To receive signals from the IR remote                     |
+| Relay Module (2-Channel) | To switch the appliances ON/OFF                           |
+| Light Bulb               | Load/Appliance                                            |
+| Miniature Fan            | Load/Appliance                                            |
+| IR Remote                | To provide user control input                             |
+| Jumper Wires             | To connect various hardware components                    |
+| Breadboard               | To provide a prototype platform for assembling the system |
 
 ---
 
@@ -65,13 +65,13 @@ The hexadecimal code associated with each button on an IR remote varies between 
 ### Identifying Hexadecimal Code of Each Button on IR Remote
 1. Connect the TSOP1738 IR receiver to the Arduino as described below:
 
-   | Arduino Pin | TSOP1738 Pin |
-   |--------------|--------------|
-   | 11 | OUT |
-   | 5V | VCC |
-   | GND | GND |
+   | Arduino Pin    | TSOP1738 Pin | 
+   |:--------------:|:------------:|
+   | 11             | OUT          |
+   | 5V             | VCC          |
+   | GND            | GND          |
    
-3. Upload the **IR code receiver sketch** from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino.
+3. Upload the sketch from [`Arduino/hex_identifier.ino`](Arduino/hex_identifier.ino) to the Arduino.
 4. Open the **Serial Monitor** and set the baud rate to 9600.
 5. Press different buttons on the IR remote and note the hexadecimal values displayed for each button.
 
@@ -80,11 +80,11 @@ After successfully identifying the hexadecimal codes for each button on the IR r
 ### Linking Buttons on IR Remote to Specific Appliances
 1. Open [`Arduino/ir_remote_home_automation.ino`](Arduino/ir_remote_home_automation.ino).
 2. Replace the example hexadecimal codes with the codes obtained in the previous step.
-3. Upload the code to the Arduino board.
+3. Upload the sketch to the Arduino board.
 4. Connect the relay module, light bulb, and miniature fan as described below:
 
     | Arduino Pin                 | Connected Component      | Component Pin     |
-    | --------------------------- | ------------------------ | ----------------- |
+    |:---------------------------:|:------------------------:|:-----------------:|
     | 11                          | TSOP1738 IR Receiver     | OUT               |
     | 5V                          |                          | VCC               |
     | GND                         |                          | GND               |
@@ -95,7 +95,7 @@ After successfully identifying the hexadecimal codes for each button on the IR r
     | Relay Output ( NO1 / COM1 ) | Light Bulb               | + / –             |
     | Relay Output ( NO2 / COM2 ) | Miniature Fan            | + / –             |
 
-    The setup is ready - pressing the assigned buttons on the IR remote will toggle the light and fan accordingly.
+The setup is ready - pressing the assigned buttons on the IR remote will toggle the light and fan accordingly.
 
 ---
 
@@ -107,7 +107,7 @@ This section provides a brief description of the source code implemented on the 
 
 The `hex_identifier.ino` sketch detects and displays the hexadecimal code transmitted by each button on the IR remote.
 
-**IR Receiver Initialization**
+**(A) IR Receiver Initialization**
 ```cpp
 #include <IRremote.h>
 
@@ -117,7 +117,7 @@ decode_results results;
 ```
 The TSOP1738 IR receiver is connected to digital pin 11 of the Arduino. The `IRremote` library handles decoding of incoming IR signals.
 
-**Reading and Printing Hexadecimal Codes**
+**(B) Reading and Printing Hexadecimal Codes**
 ```cpp
 if (irrecv.decode(&results)) {
   Serial.print("Hex Code: ");
@@ -132,7 +132,7 @@ When a button on the remote is pressed, the Arduino receives a hexadecimal code,
 
 The `ir_remote_home_automation.ino` sktech uses the identified IR codes to toggle appliances (light and fan) via relay modules.
 
-**Pin Definitions and Setup**
+**(A) Pin Definitions and Setup**
 ```cpp
 #define IR_RECEIVE_PIN 11
 #define RELAY1 7   
@@ -140,7 +140,7 @@ The `ir_remote_home_automation.ino` sktech uses the identified IR codes to toggl
 ```
 The IR receiver is connected to pin 11, while pins 7 and 8 control the relays for the light and fan, respectively.
 
-**Relay Initialization**
+**(B) Relay Initialization**
 ```cpp
 pinMode(RELAY1, OUTPUT);
 pinMode(RELAY2, OUTPUT);
@@ -149,7 +149,7 @@ digitalWrite(RELAY2, HIGH);
 ```
 Both relays are set to `HIGH` initially, ensuring that appliances remain OFF when the system starts.
 
-**Decoding and Matching IR Codes**
+**(C) Decoding and Matching IR Codes**
 ```cpp
 if (results.value == lightCode) {
   digitalWrite(RELAY1, !digitalRead(RELAY1));
@@ -166,14 +166,19 @@ The Arduino continuously listens for IR signals. When a received code matches th
 ---
 
 ## Future Improvements
+<div align="justify">
 While the current implementation successfully controls home appliances using an infrared remote, several enhancements can be made to improve its functionality and usability:
+
 - **Support for More Devices:** Extend the system to control additional household appliances.
 - **Wi-Fi or Bluetooth Integration:** Incorporate wireless communication modules for smartphone-based control alongside IR functionality.
+</div>
 
 ---
 
 ## Acknowledgements
-This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
+<p align="justify">
+This project was submitted as the Mini Project for the course <i>Electronic Circuits II and LIC Laboratory</i>, offered by the Department of Electronics and Communication Engineering at SSN College of Engineering, Chennai, Tamil Nadu. It was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
+</p>
 
 ---
 
