@@ -1,7 +1,5 @@
 # Infrared Remote-Controlled Home Automation System
-<p align="justify">
 A simple Arduino-based home automation system that allows users to control multiple electrical appliances using any Infrared (IR) remote. In this prototype, two appliances - a light bulb and a miniature fan - are connected to an Arduino board through a relay component. The system operates based on signals received from a TSOP1738 IR receiver, which detects and decodes signals from an IR remote.
-</p>
 
 ---
 
@@ -22,9 +20,7 @@ A simple Arduino-based home automation system that allows users to control multi
 ---
 
 ## Project Overview
-<p align="justify">
 When any button on the IR remote is pressed, the TSOP1738 IR receiver (connected to the Arduino board) detects the signal and sends it to the Arduino Uno. The Arduino decodes this incoming signal into a hexadecimal value and compares it with predefined codes stored in the source code. If a match is found, the corresponding relay channel is toggled, switching the connected appliance ON or OFF.
-</p>
 
 ---
 
@@ -168,19 +164,15 @@ The Arduino continuously listens for IR signals. When a received code matches th
 ---
 
 ## Future Improvements
-<div align="justify">
 While the current implementation successfully controls home appliances using an infrared remote, several enhancements can be made to improve its functionality and usability:
 
 - **Support for More Devices:** Extend the system to control additional household appliances.
 - **Wi-Fi or Bluetooth Integration:** Incorporate wireless communication modules for smartphone-based control alongside IR functionality.
-</div>
 
 ---
 
 ## Acknowledgements
-<p align="justify">
-This project was submitted as the Mini Project for the course <i>Electronic Circuits II and LIC Laboratory</i>, offered by the Department of Electronics and Communication Engineering at SSN College of Engineering, Chennai, Tamil Nadu. This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
-</p>
+This project was submitted as the Mini Project for the course _Electronic Circuits II and LIC Laboratory_, offered by the Department of Electronics and Communication Engineering at SSN College of Engineering, Chennai, Tamil Nadu. This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
 
 ---
 
