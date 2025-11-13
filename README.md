@@ -179,7 +179,7 @@ While the current implementation successfully controls home appliances using an 
 
 ## Acknowledgements
 <p align="justify">
-This project was submitted as the Mini Project for the course <i>Electronic Circuits II and LIC Laboratory</i>, offered by the Department of Electronics and Communication Engineering at SSN College of Engineering, Chennai, Tamil Nadu. This was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
+This project was submitted as the Mini Project for the course <i>Electronic Circuits II and LIC Laboratory</i>, offered by the Department of Electronics and Communication Engineering at SSN College of Engineering, Chennai, Tamil Nadu. This project was a collaborative effort developed between April 2022 and June 2022. Special thanks to fellow contributors M. Pradheep and S. Vignesh Kumar for their support in the development and testing of this prototype.
 </p>
 
 ---
