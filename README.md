@@ -1,5 +1,7 @@
 # Infrared Remote-Controlled Home Automation System
+<p align="justify">
 A simple Arduino-based home automation system that allows users to control multiple electrical appliances using any Infrared (IR) remote. In this prototype, two appliances - a light bulb and a miniature fan - are connected to an Arduino board through a relay component. The system operates based on signals received from a TSOP1738 IR receiver, which detects and decodes signals from an IR remote.
+</p>
 
 ---
 
